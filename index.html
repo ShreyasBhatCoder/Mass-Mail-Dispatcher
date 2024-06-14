@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/nodemailer/6.6.0/nodemailer.min.js"></script>
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+  </script>
+  <script type="text/javascript">
+    (function () {
+      emailjs.init({
+        publicKey: "HPLLo0C5oPRgoERwb",
+      });
+    })();
+  </script>
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="form-mail">
+      <div class="container-inside">
+        <div class="valid">
+          <h2 style="font-size: 15px; color: white;">Valid Emails (<span id="validCount" style="color: white;">0</span>)</h2>
+          <textarea id="validEmails" rows="10" cols="30" readonly></textarea>
+        </div>
+        <div class="invalid">
+          <h2 style="font-size: 15px; color: white;">Invalid Emails (<span id="invalidCount" style="color: white;">0</span>)</h2>
+          <textarea id="invalidEmails" rows="10" cols="30" readonly></textarea>
+        </div>
+      </div>
+      <div class="box file">
+        <h2>Receivers</h2>
+        <button class="fileselect" onclick="addActive()">Choose file</button>
+      </div>
+    </div>
+    <div class="form-box">
+      <div class="form signinform">
+        <form action="" id="mailform">
+          <h3>Mass Mail Dispatcher</h3>
+          <input type="email" id="email" placeholder="Sender's Email" required />
+          <input type="file" id="upload-box" accept=".csv" required />
+          <input type="text" id="subject" placeholder="Subject" required />
+          <textarea id="message" placeholder="Message" required></textarea>
+          <div class="buttons">
+            <button type="submit" class="button" onclick="addActive(); processFile(); sendEmail()">Send</button>
+            <button type="submit" class="button" onclick="reset()">Reset</button>
+          </div>
+        </form>
+      </div>
+      <div class="box signin">
+        <h3>Send more mails?</h3>
+        <button class="signinbtn" onclick="removeActive(); window.location.reload()">Next</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="./index.js"></script>
+</body>
+
+</html>
